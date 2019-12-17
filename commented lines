@@ -1,0 +1,209 @@
+'''
+tri = Triangle(Vec3(), Vec3(0,1,1), Vec3(1,2,1))
+print(tri.C)
+test_matrix = transformations.compose_matrix(angles=[0,90,0])
+tri.C = test_matrix.dot(np.asarray([tri.C.x, tri.C.y, tri.C.z, 1]))
+print(tri.C)
+
+'''
+    # transformations.rotation_matrix()
+    #tris_list = np.asarray(tris_list, dtype=Triangle)
+# culled_tris_list = []
+        # for tri in tris_list:
+        #     if tri.normal.z < 0:
+        #         culled_tris_list.append(tri)  # only keep triangles facing towards the camera
+        # del tris_list
+        # culled_tris_list = np.asarray(culled_tris_list, dtype=Triangle)
+
+        #objects_list.append(obj for obj in spheres_for_link)
+
+    # print(start_time)
+
+    # color_sum = Vec3()
+    # for (k,l) in ray_offsets:
+    #     new_ray_direction = Vec3(-width / 2 + j + 0.5 + k + randrange(), height / 2 - i + 0.5, 0)
+        #new_ray =
+     #print(i, j)
+
+    '''except TypeError:
+        print("Same error at : ", i, j)
+        print(curr_ray)
+        exit()'''
+    # test_tri.intersect(curr_ray)
+
+    #os.chdir(r"../Shading Testing Pictures")
+
+    # color = np.ndarray(shape=(10, 10, 3), dtype=int) #buffer=color_buffer)
+    # print(image)
+
+
+'''
+    ptA = Vec3(-width, -height, 0)
+    ptB = ptA + Vec3(2*width, 0, 0)
+    ptC = ptA + Vec3(width, 2*height, 0)
+    firstTriOffset = Vec3(0, 0, tri_dist)
+    ptA1, ptB1, ptC1 = ptA + firstTriOffset, ptB + firstTriOffset, ptC + firstTriOffset
+    tris_list.append(Triangle(ptA1, ptB1, ptC1, input_color=Vec3(100, 0, 250), reflectiveness=0.9))
+
+
+    secondTriOffset = Vec3(0, 0, -eye_distance)
+    ptA2, ptB2, ptC2 = ptA + secondTriOffset, ptB + secondTriOffset, ptC + secondTriOffset
+    tris_list.append(Triangle(ptA2, ptC2, ptB2, input_color=Vec3(100, 0, 250), reflectiveness=0.9))
+    off3 = Vec3(-3/4*width, -3/4*height, 0)
+    #tris_list.append(Triangle(ptA2+off3, ptC2+off3, ptB2+off3, input_color=Vec3(250, 0, 0)))
+
+    tri1 = Triangle(ptA, ptB, ptC, input_color=Vec3(0, 250, 0), reflectiveness=0.8)
+
+    ptA2 = Vec3((-3/ 5) * width, -height * 3 / 5, -500)
+    ptB2 = ptA2 + Vec3(3/4 * width, 0, 0)
+    ptC2 = ptA2 + Vec3(0.75 * width,  height, 0)
+    tri2 = Triangle(ptA2, ptB2, ptC2, input_color=Vec3(0, 0, 250))
+
+    tris_list.append(tri1)
+    tris_list.append(tri2)
+
+    print("Eye location: ", eye_location)
+    for tri in tris_list[:10]:
+        print(tri)
+    print("finished")
+
+    test_tri = Triangle(ptA, ptB, ptC)
+    objects = [test_tri] '''
+
+'''
+# Failed experiment
+x = np.tile(np.linspace(0.5, width+0.5, width), height)
+y = np.repeat(np.linspace(0.5, height+0.5, height), width)
+
+endpoints = Vec3(x, y, 0)
+rays = Ray(eye_location, endpoints-eye_location)
+color = ray_trace(rays, objects_list, num_bounces=0, max_bounces=depth,
+                  background_color=background_color, list_of_lights=lights_list)
+image = Image.fromarray(image_data, "RGB")
+end_time = time.time()
+print(end_time)
+time_taken = end_time - start_time
+print(f"Total Time: {time_taken}")
+image.show()
+exit()
+'''
+'''
+General Algorithm:
+for each pixel:
+    Initialize Ray for pixel
+    hit_object = None
+    for each triangle:
+        if triangle hit by ray (closest one will be it):
+            hit_object = current triangle  (distance of closest hit is saved in ray)
+    if is_hit:
+        reflect(ray. origin + ray.distance * ray.direction, triangle.normal)
+
+'''
+
+# print(f"Reflected color = {reflected_color}")
+
+            # if cel_shaded:
+            #     color_magnitude = abs(shaded_color)
+            #     if color_magnitude > abs(Vec3(0.9, 0.9, 0.9) * 255):
+            #         sum_color+= Vec3(1, 1, 1) * 255
+            #     elif color_magnitude > abs(Vec3(0.5, 0.5, 0.5) * 255):
+            #         object_hit
+
+
+# avg_color = sum_color / len(color_rays_list)
+# TODO may cause issues with averaging normals...
+
+# print(f"Shadow ray nearest hit = {shadow_ray.nearest_hit_distance}", end="\t")
+
+# print(f"{object_shaded.color} Sphere is in shadow: distance = {shadow_ray.nearest_hit_distance}", end="\n")
+# exit()
+
+
+# print(f"Object shaded={object_shaded} | Object Hit ={in_shadow}", end="\n")
+# diffuse_color += object_shaded.get_color * abs(ambient_color)
+
+# print("In shader")
+'''
+diff_scale, spec_scale = max(diffuse_color.x, diffuse_color.y, diffuse_color.z),\
+                         max(specular_color.x, specular_color.y, specular_color.z)
+
+if diff_scale > 0:
+    diffuse_color = diffuse_color / diff_scale * 255
+if spec_scale > 0:
+    specular_color = specular_color / spec_scale * 255
+
+    '''
+# elif color_magnitude > abs(Vec3(0.7, 0.7, 0.7) * 255):
+#     return color_shaded * 0.9
+
+
+# total_scale = max(total_color.x, total_color.y, total_color.z)
+# if total_scale > 255:
+#     total_color /= total_scale
+# print(f"Amb = {ambient_color}, Diff = {diffuse_color}, Spec =  {specular_color}; Total = {total_color}", end="\n")
+
+
+
+# print(f"l_dot_n = {l_dot_n} ", end="\t")
+# print(object_shaded.get_color(point_hit=point_shaded))
+
+
+# print("Distance", cstd_ray.nearest_hit_distance, end="\t")
+# print("Normal of Obj: ", object_hit.normal, end="\t")
+
+# if num_bounces > 0:
+# print(f"Recursion Depth {num_bounces}: ", end="\t")
+
+# First hit
+# object_hit = ray_intersection(cstd_ray, objects_list)
+
+# # Did not hit anything
+# if object_hit is False:
+#     return background_color
+'''
+    elif type(object) == Sphere:  # TODO add sphere intersection
+        # reflected_ray = None
+        print("Not a triangle")
+        return background_color'''
+
+# print(f"Testing object: {obj}")
+
+            # print("Reflected Color: ", reflected_color)
+            # print(f"Current Color = {shaded_color}",end="\t")
+            # print("Reflected Ray: ", reflected_ray)
+                # print(f"Point hit = {point_hit}", end="\t")
+        # if not ray_did_hit:
+        #     print(f"Error: Ray {ray} did not collide with any object of {silhouette_objects_hit_list}")
+    # print(silhouette_objects_hit_list)
+    #print(silhouette_objects_hit_list)
+    '''
+    def hit(self):
+        # TODO maybe not define this here
+        pass
+    '''
+        # mag = abs(n_vec)
+        # if mag < 0.999 or mag > 1.001:
+        #     n_vec = n_vec.normalize()
+
+
+# from random import randrange
+# import os
+# from vector import Vec3
+Triangle, Sphere, CheckeredSphere,import time
+# import timing_testing
+import transformations as transformations
+
+'''
+model = wf.Wavefront('DolToonlinkR1_fixed.obj')
+model.parse()
+
+
+for name, material in model.materials.items():
+    vertices = np.array(material.vertices)
+    vertices.shape = (len(vertices)//6, 2, 3)
+    tris_list = []
+    with open("Trial_geometry_data.txt","w") as f:
+        for vertex in vertices:
+            pos = Vec3(vertex[1][0], vertex[1][1], vertex[1][2])
+            norm = Vec3(vertex[0][0], vertex[0][1], vertex[0][2])
+            f.write(f"Pos mag= {abs(pos)} \t Norm mag = {abs(norm)} \n")'''
