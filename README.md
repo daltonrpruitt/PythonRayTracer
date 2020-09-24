@@ -1,5 +1,6 @@
-# ray_tracer
+# Non-Photorealisitic Ray tracer
 ## Basic ray tracer for rendering spheres and triangles. *(With reflections)*
+## Additional Features: Cel-shading and Edge-Silhouetting
 
 Final project for Computer Graphics at MSState
 
